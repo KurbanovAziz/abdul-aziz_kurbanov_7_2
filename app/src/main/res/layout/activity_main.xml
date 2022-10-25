@@ -168,7 +168,6 @@
             <com.google.android.material.button.MaterialButton
                 style="@style/Dark.Gray.Button"
                 android:id="@+id/btn_dot"
-                android:onClick="onOperationClick"
                 android:layout_marginHorizontal="18dp"
                 android:text="." />
 
