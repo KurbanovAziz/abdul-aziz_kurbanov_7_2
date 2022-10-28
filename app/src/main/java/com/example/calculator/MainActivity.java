@@ -2,8 +2,11 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,12 +16,20 @@ public class MainActivity extends AppCompatActivity {
     private Boolean isOperationClick;
     private String operation;
     private Double result;
+    private Button button;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         text = findViewById(R.id.text);
+        button = findViewById(R.id.btn_next);
+
+        button.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+            startActivity(intent);
+        });
     }
 
     public void onNumberClick(View view) {
@@ -56,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_dot:
                 text.append(".");
                 break;
+
             case R.id.btn_clear:
+                button.setVisibility(View.INVISIBLE);
                 text.setText("0");
                 first = 0.0;
                 second = 0.0;
@@ -82,27 +95,31 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_equals:
                 second = Double.valueOf(text.getText().toString());
+                button.setVisibility(View.VISIBLE);
                 if (operation == "+") {
                     result = first + second;
-                }else if (operation == "-"){
+                } else if (operation == "-") {
                     result = first - second;
-                }else if (operation == "x"){
+                } else if (operation == "x") {
                     result = first * second;
-                }else if (operation == "/"){
+                } else if (operation == "/") {
                     result = first / second;
                 }
-                text.setText(result.toString());
+                    text.setText(result.toString());
+
                 break;
         }
         isOperationClick = true;
     }
 
-    public void btnOperation(String operation){
+    public void btnOperation(String operation) {
         this.operation = operation;
+        button.setVisibility(View.INVISIBLE);
         first = Double.valueOf(text.getText().toString());
     }
 
     public void btnNumber(Integer num) {
+        button.setVisibility(View.INVISIBLE);
         if (text.getText().toString().equals("0")) {
             text.setText(num.toString());
         } else if (isOperationClick) {
