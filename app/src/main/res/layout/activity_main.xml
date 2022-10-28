@@ -60,6 +60,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_plus_minus"
+                android:onClick="onNumberClick"
                 style="@style/Gray.Button"
                 android:layout_marginHorizontal="18dp"
                 android:text="+/-" />

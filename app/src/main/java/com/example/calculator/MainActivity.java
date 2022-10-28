@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.btn_next);
 
         button.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            String textView = text.getText().toString();
+            intent.putExtra("key1",textView);
             startActivity(intent);
         });
     }
@@ -67,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_dot:
                 text.append(".");
                 break;
-
             case R.id.btn_clear:
                 button.setVisibility(View.INVISIBLE);
                 text.setText("0");
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (operation == "/") {
                     result = first / second;
                 }
-                    text.setText(result.toString());
+                text.setText(result.toString());
 
                 break;
         }
