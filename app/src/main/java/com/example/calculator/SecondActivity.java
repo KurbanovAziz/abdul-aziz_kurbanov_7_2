@@ -26,6 +26,21 @@ public class SecondActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        findViewById(R.id.btn_category).setOnClickListener(view -> {
+            Intent intent = new Intent(SecondActivity.this,InfoActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.btn_origin).setOnClickListener(view -> {
+            Intent intent = new Intent(SecondActivity.this,InfoActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.btn_brand).setOnClickListener(view -> {
+            Intent intent = new Intent(SecondActivity.this,InfoActivity.class);
+            startActivity(intent);
+        });
+
         findViewById(R.id.btn_destroy).setOnClickListener(view -> {
             onDestroy();
             finish();

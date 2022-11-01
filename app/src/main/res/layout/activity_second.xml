@@ -66,14 +66,17 @@
 
         <com.google.android.material.button.MaterialButton
             style="@style/White.Gray.Button"
+            android:id="@+id/btn_category"
             android:text="Product Category" />
 
         <com.google.android.material.button.MaterialButton
             style="@style/White.Gray.Button"
+            android:id="@+id/btn_origin"
             android:text="Origin Country" />
 
         <com.google.android.material.button.MaterialButton
             style="@style/White.Gray.Button"
+            android:id="@+id/btn_brand"
             android:text="Brand" />
 
         <TextView
