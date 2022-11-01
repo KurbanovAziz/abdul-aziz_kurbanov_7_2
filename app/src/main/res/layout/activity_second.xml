@@ -61,7 +61,8 @@
 
         <com.google.android.material.button.MaterialButton
             style="@style/White.Gray.Button"
-            android:text="Policy" />
+            android:id="@+id/btn_chat"
+            android:text="Chat Screen" />
 
         <com.google.android.material.button.MaterialButton
             style="@style/White.Gray.Button"
